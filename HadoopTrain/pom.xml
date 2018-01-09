@@ -1,0 +1,83 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>cn.edu.nju</groupId>
+    <artifactId>hadoop</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
+
+    <name>hadoop</name>
+    <url>http://maven.apache.org</url>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <hadoop.verson>2.6.0-cdh5.7.0</hadoop.verson>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+    </properties>
+
+    <repositories>
+        <repository>
+            <id>cloudera</id>
+            <url>https://repository.cloudera.com/artifactory/cloudera-repos</url>
+        </repository>
+    </repositories>
+
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.hadoop</groupId>
+            <artifactId>hadoop-client</artifactId>
+            <version>${hadoop.verson}</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- 添加UserAgent解析的依赖 -->
+        <dependency>
+            <groupId>com.kumkee</groupId>
+            <artifactId>UserAgentParser</artifactId>
+            <version>0.0.1</version>
+        </dependency>
+
+        <!-- 添加spring hadoop的依赖 -->
+        <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-hadoop</artifactId>
+            <version>2.5.0.RELEASE</version>
+        </dependency>
+
+        <!-- 添加spring boot的依赖 -->
+        <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-hadoop-boot</artifactId>
+            <version>2.5.0.RELEASE</version>
+        </dependency>
+    </dependencies>
+
+    <!-- mvn assembly:assembly -->
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <mainClass></mainClass>
+                        </manifest>
+                    </archive>
+                    <descriptorRefs>
+                        <desctiptorRef>jar-with-dependencies</desctiptorRef>
+                    </descriptorRefs>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
