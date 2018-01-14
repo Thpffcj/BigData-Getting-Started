@@ -1,2 +1,7 @@
 /HadoopTrain/.idea
 /HadoopTrain/target
+/HadoopTrain/HadoopTrain.iml
+/SparkTrain/.idea
+/SparkTrain/target
+/SparkTrain/SparkTrain.iml
+/LogGenerator/.idea
