@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>imooc_stat</title>
+
+    <!-- 引入 ECharts 文件 -->
+    <script src="js/echarts.min.js"></script>
+</head>
+<body>
+
+<!-- 为 ECharts 准备一个具备大小（宽高）的 DOM -->
+<div id="main" style="width: 600px;height:400px;position: absolute; top:50%; left: 50%; margin-top: -200px;margin-left: -300px"></div>
+
+
+<script type="text/javascript">
+    // 基于准备好的dom，初始化echarts实例
+    var myChart = echarts.init(document.getElementById('main'));
+
+    // 指定图表的配置项和数据
+    var option = {
+        title : {
+            text: '慕课网实战课程实时访问量统计',
+            subtext: '实战课程访问次数',
+            x:'center'
+        },
+        tooltip : {
+            trigger: 'item',
+            formatter: "{a} <br/>{b} : {c} ({d}%)"
+        },
+        legend: {
+            orient: 'vertical',
+            left: 'left',
+            data: ['Spark SQL项目实战','Hadoop入门','Spark Streaming项目实战','大数据面试题','Storm项目实战']
+        },
+        series : [
+            {
+                name: '访问次数',
+                type: 'pie',
+                radius : '55%',
+                center: ['50%', '60%'],
+                data:[
+                    {value:3350, name:'Spark SQL项目实战'},
+                    {value:3100, name:'Hadoop入门'},
+                    {value:2340, name:'Spark Streaming项目实战'},
+                    {value:1350, name:'大数据面试题'},
+                    {value:15480, name:'Storm项目实战'}
+                ],
+                itemStyle: {
+                    emphasis: {
+                        shadowBlur: 10,
+                        shadowOffsetX: 0,
+                        shadowColor: 'rgba(0, 0, 0, 0.5)'
+                    }
+                }
+            }
+        ]
+    };
+
+    // 使用刚指定的配置项和数据显示图表。
+    myChart.setOption(option);
+</script>
+</body>
+</html>
