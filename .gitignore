@@ -4,4 +4,11 @@
 /SparkTrain/.idea
 /SparkTrain/target
 /SparkTrain/SparkTrain.iml
+/StormTrain/.idea
+/StormTrain/target
+/StormTrain/logs
+/StormTrain/StormTrain.iml
 /LogGenerator/.idea
+/DataVisualization/DataVisualization.iml
+/*/.idea
+/*/target
