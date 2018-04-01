@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>cn.edu.nju</groupId>
-    <artifactId>151250052</artifactId>
+    <artifactId>storm</artifactId>
     <version>1.0</version>
     <packaging>jar</packaging>
 
