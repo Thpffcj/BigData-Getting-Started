@@ -31,7 +31,7 @@ def sample_info():
 
 def generate_log(count = 3):
     time_str = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
-    f = open("/home/thpffcj/data/logs/access.log", "w+")
+    f = open("/home/thpffcj/data/logs/access.log", "a+")
     while count >= 1:
         query_log = "{phone}\t{info}\t[{local_time}]".format(phone = sample_phone(),
                                                              info = sample_info(), local_time = time_str)
