@@ -36,7 +36,7 @@ def generate_log(count = 3):
         query_log = "{phone}\t{info}\t[{local_time}]".format(phone = sample_phone(),
                                                              info = sample_info(), local_time = time_str)
         # print(query_log)
-        f.write(query_log + "\t")
+        f.write(query_log + "\n")
         count = count - 1
 
 
