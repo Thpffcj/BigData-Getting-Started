@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>基于Storm的实时区域游客量热力图统计</title>
+
+    <link rel="stylesheet" href="http://cache.amap.com/lbs/static/main1119.css"/>
+    <script src="http://webapi.amap.com/maps?v=1.4.5&key=edaee476f1aece49ed92adf8b15d3a52"></script>
+    <script src="js/jquery.js"></script>
+</head>
+<body>
+<div id="container"></div>
+
+<script type="text/javascript">
+    var map = new AMap.Map("container", {
+        resizeEnable: true,
+        center: [116.418261, 39.921984],
+        zoom: 11
+    });
+
+    var heatmap;
+    // var points =[
+    //     {"lng":116.191031,"lat":39.988585,"count":1000},
+    //     {"lng":116.389275,"lat":39.925818,"count":11},
+    //     {"lng":116.287444,"lat":39.810742,"count":500},
+    //     {"lng":116.481707,"lat":39.940089,"count":13},
+    //     {"lng":116.410588,"lat":39.880172,"count":14},
+    //     {"lng":116.394816,"lat":39.91181,"count":15},
+    //     {"lng":116.416002,"lat":39.952917,"count":16}
+    // ];
+
+    map.plugin(["AMap.Heatmap"], function () {      //加载热力图插件
+        heatmap = new AMap.Heatmap(map, {
+            radius: 50,
+            opacity: [0, 0.8]
+        });    //在地图对象叠加热力图
+        heatmap.setDataSet({
+            data: (function(){ //<![CDATA[
+                var points = [];
+                $.ajax({
+                    type: "POST",
+                    url: "/map_stat",
+                    dataType: 'json',
+                    async: false,
+                    success: function (result) {
+                        for (var i = 0; i < result.length; i++) {
+                            points.push({"lng": result[i].lng, "lat": result[i].lat, "count": result[i].count * 100})
+                        }
+                        console.log(points);
+                    }
+                });
+                return points;
+                //]]>
+            })(),
+            max: 100
+        }); //设置热力图数据集
+        //具体参数见接口文档
+    });
+
+    AMap.plugin(["AMap.ToolBar"], function () {
+        map.addControl(new AMap.ToolBar());
+    });
+
+</script>
+</body>
+</html>
+
+
+
