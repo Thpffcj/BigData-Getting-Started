@@ -10,5 +10,7 @@
 /StormTrain/StormTrain.iml
 /LogGenerator/.idea
 /DataVisualization/DataVisualization.iml
+/StormVisualization/DataVisualization.iml
+/SparkSQLVisualization/DataVisualization.iml
 /*/.idea
 /*/target
