@@ -17,13 +17,22 @@ object StreamingWCScalaApp {
 
     import org.apache.flink.api.scala._
 
+//    text.flatMap(_.split(","))
+//      .filter(_.nonEmpty)
+//      .map((_, 1))
+//      .keyBy(0)
+//      .timeWindow(Time.seconds(5))
+//      .sum(1).print()
+
     text.flatMap(_.split(","))
       .filter(_.nonEmpty)
-      .map((_, 1))
-      .keyBy(0)
+      .map(x => WC(x, 1))
+      .keyBy("word")
       .timeWindow(Time.seconds(5))
-      .sum(1).print()
+      .sum("count").print()
 
     env.execute("StreamingWCScalaApp")
   }
+
+  case class WC(word: String, count:Int)
 }

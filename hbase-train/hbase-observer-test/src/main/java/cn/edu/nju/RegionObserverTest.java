@@ -1,6 +1,5 @@
 package cn.edu.nju;
 
-import java.awt.image.ImagingOpException;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;

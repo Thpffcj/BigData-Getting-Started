@@ -95,6 +95,5 @@ public class TestRowCountEndPoint extends hbaseEndPointTestService
         responseBuilder.setRowCount(result);
         done.run(responseBuilder.build());
         return;
-
     }
 }

@@ -22,7 +22,7 @@ under the License.
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>cn.edu.nju</groupId>
-	<artifactId>flink-train-scala</artifactId>
+	<artifactId>flink-train</artifactId>
 	<version>1.0</version>
 	<packaging>jar</packaging>
 
