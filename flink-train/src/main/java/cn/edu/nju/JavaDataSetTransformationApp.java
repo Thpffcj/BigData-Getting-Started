@@ -1,13 +1,11 @@
 package cn.edu.nju;
 
-import org.apache.flink.api.common.functions.FilterFunction;
-import org.apache.flink.api.common.functions.FlatMapFunction;
-import org.apache.flink.api.common.functions.MapFunction;
-import org.apache.flink.api.common.functions.MapPartitionFunction;
+import org.apache.flink.api.common.functions.*;
 import org.apache.flink.api.common.operators.Order;
 import org.apache.flink.api.java.ExecutionEnvironment;
 import org.apache.flink.api.java.operators.DataSource;
 import org.apache.flink.api.java.tuple.Tuple2;
+import org.apache.flink.api.java.tuple.Tuple3;
 import org.apache.flink.util.Collector;
 
 import java.util.ArrayList;
@@ -24,7 +22,80 @@ public class JavaDataSetTransformationApp {
 //        mapPartitionFunction(env);
 //        firstFunction(env);
 //        flatMapFunction(env);
-        distinctFunction(env);
+//        distinctFunction(env);
+//        joinFunction(env);
+//        outJoinFunction(env);
+        crossFunction(env);
+    }
+
+    public static void crossFunction(ExecutionEnvironment env) throws Exception {
+        List<String> info1 = new ArrayList();
+        info1.add("曼联");
+        info1.add("曼城");
+
+        List<String> info2 = new ArrayList();
+        info2.add("3");
+        info2.add("1");
+        info2.add("0");
+
+        DataSource<String> data1 = env.fromCollection(info1);
+        DataSource<String> data2 = env.fromCollection(info2);
+
+        data1.cross(data2).print();
+    }
+
+    public static void outJoinFunction(ExecutionEnvironment env) throws Exception {
+        List<Tuple2<Integer, String>> info1 = new ArrayList();
+        info1.add(new Tuple2(1, "Thpffcj1"));
+        info1.add(new Tuple2(2, "Thpffcj2"));
+        info1.add(new Tuple2(3, "Thpffcj3"));
+        info1.add(new Tuple2(4, "Thpffcj4"));
+
+        List<Tuple2<Integer, String>> info2 = new ArrayList();
+        info2.add(new Tuple2(1, "南京"));
+        info2.add(new Tuple2(2, "北京"));
+        info2.add(new Tuple2(3, "上海"));
+        info2.add(new Tuple2(5, "成都"));
+
+        DataSource<Tuple2<Integer, String>> data1 = env.fromCollection(info1);
+        DataSource<Tuple2<Integer, String>> data2 = env.fromCollection(info2);
+
+        data1.fullOuterJoin(data2).where(0).equalTo(0).with(new JoinFunction<Tuple2<Integer, String>, Tuple2<Integer, String>, Tuple3<Integer, String, String>>() {
+            @Override
+            public Tuple3<Integer, String, String> join(Tuple2<Integer, String> first, Tuple2<Integer, String> second) throws Exception {
+                if (first == null) {
+                    return new Tuple3<>(second.f0, "-", second.f1);
+                } else if (second == null) {
+                    return new Tuple3<>(first.f0, first.f1, "-");
+                } else {
+                    return new Tuple3<>(first.f0, first.f1, second.f1);
+                }
+            }
+        }).print();
+    }
+
+    public static void joinFunction(ExecutionEnvironment env) throws Exception {
+        List<Tuple2<Integer, String>> info1 = new ArrayList();
+        info1.add(new Tuple2(1, "Thpffcj1"));
+        info1.add(new Tuple2(2, "Thpffcj2"));
+        info1.add(new Tuple2(3, "Thpffcj3"));
+        info1.add(new Tuple2(4, "Thpffcj4"));
+
+        List<Tuple2<Integer, String>> info2 = new ArrayList();
+        info2.add(new Tuple2(1, "南京"));
+        info2.add(new Tuple2(2, "北京"));
+        info2.add(new Tuple2(3, "上海"));
+        info2.add(new Tuple2(5, "成都"));
+
+        DataSource<Tuple2<Integer, String>> data1 = env.fromCollection(info1);
+        DataSource<Tuple2<Integer, String>> data2 = env.fromCollection(info2);
+
+        data1.join(data2).where(0).equalTo(0).with(new JoinFunction<Tuple2<Integer, String>, Tuple2<Integer, String>, Tuple3<Integer, String, String>>() {
+            @Override
+            public Tuple3<Integer, String, String> join(Tuple2<Integer, String> first, Tuple2<Integer, String> second) throws Exception {
+                return new Tuple3<>(first.f0, first.f1, second.f1);
+            }
+        }).print();
     }
 
     public static void distinctFunction(ExecutionEnvironment env) throws Exception {

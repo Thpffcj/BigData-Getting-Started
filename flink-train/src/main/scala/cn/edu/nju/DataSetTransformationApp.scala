@@ -19,7 +19,72 @@ object DataSetTransformationApp {
 //    mapPartitionFunction(env)
 //    firstFunction(env)
 //    flatMapFunction(env)
-    distinctFunction(env)
+//    distinctFunction(env)
+//    joinFunction(env)
+//    outJoinFunction(env)
+    crossFunction(env)
+  }
+
+  def crossFunction(env: ExecutionEnvironment): Unit = {
+    val info1 = ListBuffer[String]()
+    info1.append("曼联")
+    info1.append("曼城")
+
+    val info2 = ListBuffer[String]()
+    info2.append("3")
+    info2.append("1")
+    info2.append("0")
+
+    val data1 = env.fromCollection(info1)
+    val data2 = env.fromCollection(info2)
+
+    data1.cross(data2).print()
+  }
+
+  def outJoinFunction(env: ExecutionEnvironment): Unit = {
+    val info1 = ListBuffer[(Int, String)]() // 编号 名字
+    info1.append((1, "Thpffcj1"))
+    info1.append((2, "Thpffcj2"))
+    info1.append((3, "Thpffcj3"))
+    info1.append((4, "Thpffcj4"))
+
+    val info2 = ListBuffer[(Int, String)]() // 编号 城市
+    info2.append((1, "南京"))
+    info2.append((2, "北京"))
+    info2.append((3, "上海"))
+    info2.append((5, "成都"))
+
+    val data1 = env.fromCollection(info1)
+    val data2 = env.fromCollection(info2)
+
+    data1.leftOuterJoin(data2).where(0).equalTo(0).apply((first, second) => {
+      if (second == null) {
+        (first._1, first._2, "-")
+      } else {
+        (first._1, first._2, second._2)
+      }
+    }).print()
+  }
+
+  def joinFunction(env: ExecutionEnvironment): Unit = {
+    val info1 = ListBuffer[(Int, String)]() // 编号 名字
+    info1.append((1, "Thpffcj1"))
+    info1.append((2, "Thpffcj2"))
+    info1.append((3, "Thpffcj3"))
+    info1.append((4, "Thpffcj4"))
+
+    val info2 = ListBuffer[(Int, String)]() // 编号 城市
+    info2.append((1, "南京"))
+    info2.append((2, "北京"))
+    info2.append((3, "上海"))
+    info2.append((5, "成都"))
+
+    val data1 = env.fromCollection(info1)
+    val data2 = env.fromCollection(info2)
+
+    data1.join(data2).where(0).equalTo(0).apply((first, second) => {
+      (first._1, first._2, second._2)
+    }).print()
   }
 
   def distinctFunction(env: ExecutionEnvironment): Unit = {
