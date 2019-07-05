@@ -1,4 +1,4 @@
-package cn.edu.nju;
+package cn.edu.nju.course04;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.flink.api.common.functions.RichMapFunction;

@@ -1,11 +1,9 @@
-package cn.edu.nju
+package cn.edu.nju.course04
 
 import org.apache.flink.api.common.operators.Order
 import org.apache.flink.api.scala.ExecutionEnvironment
-
-import scala.collection.mutable.ListBuffer
-// 隐式转换
 import org.apache.flink.api.scala._
+import scala.collection.mutable.ListBuffer
 
 /**
   * Created by thpffcj on 2019-07-02.

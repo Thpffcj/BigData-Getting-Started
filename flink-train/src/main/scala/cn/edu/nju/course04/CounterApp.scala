@@ -1,11 +1,11 @@
-package cn.edu.nju
+package cn.edu.nju.course04
 
 import org.apache.flink.api.common.accumulators.LongCounter
 import org.apache.flink.api.common.functions.RichMapFunction
 import org.apache.flink.api.scala.ExecutionEnvironment
-import org.apache.flink.api.scala._
 import org.apache.flink.configuration.Configuration
 import org.apache.flink.core.fs.FileSystem.WriteMode
+import org.apache.flink.api.scala._
 
 /**
   * 基于Flink编程的计数器开发三部曲

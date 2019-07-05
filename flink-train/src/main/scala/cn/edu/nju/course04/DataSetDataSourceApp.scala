@@ -1,4 +1,4 @@
-package cn.edu.nju
+package cn.edu.nju.course04
 
 import org.apache.flink.api.scala.ExecutionEnvironment
 import org.apache.flink.configuration.Configuration

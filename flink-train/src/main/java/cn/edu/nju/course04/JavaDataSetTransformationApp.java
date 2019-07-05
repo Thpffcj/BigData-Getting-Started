@@ -1,5 +1,6 @@
-package cn.edu.nju;
+package cn.edu.nju.course04;
 
+import cn.edu.nju.course04.DBUtils;
 import org.apache.flink.api.common.functions.*;
 import org.apache.flink.api.common.operators.Order;
 import org.apache.flink.api.java.ExecutionEnvironment;

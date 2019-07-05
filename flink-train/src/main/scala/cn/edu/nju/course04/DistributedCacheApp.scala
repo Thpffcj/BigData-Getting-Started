@@ -1,10 +1,10 @@
-package cn.edu.nju
+package cn.edu.nju.course04
 
 import org.apache.commons.io.FileUtils
 import org.apache.flink.api.common.functions.RichMapFunction
 import org.apache.flink.api.scala.ExecutionEnvironment
-import org.apache.flink.api.scala._
 import org.apache.flink.configuration.Configuration
+import org.apache.flink.api.scala._
 
 /**
   * step1：注册一个本地/HDFS文件

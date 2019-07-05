@@ -1,8 +1,8 @@
-package cn.edu.nju
+package cn.edu.nju.course04
 
 import org.apache.flink.api.scala.ExecutionEnvironment
-import org.apache.flink.api.scala._
 import org.apache.flink.core.fs.FileSystem.WriteMode
+import org.apache.flink.api.scala._
 
 /**
   * Created by thpffcj on 2019-07-04.

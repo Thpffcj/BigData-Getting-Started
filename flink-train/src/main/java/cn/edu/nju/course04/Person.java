@@ -1,4 +1,4 @@
-package cn.edu.nju;
+package cn.edu.nju.course04;
 
 /**
  * Created by thpffcj on 2019-07-02.
