@@ -12,9 +12,27 @@ public class JavaDataStreamSourceApp {
 
         StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
 
-        socketFunction(env);
+//        socketFunction(env);
+//        nonParallelSourceFunction(env);
+//        parallelSourceFunction(env);
+        richParallelSourceFunction(env);
 
         env.execute("JavaDataStreamSourceApp");
+    }
+
+    public static void richParallelSourceFunction(StreamExecutionEnvironment env) {
+        DataStreamSource<Long> data = env.addSource(new JavaCustomRichParallelSourceFunction()).setParallelism(2);
+        data.print().setParallelism(1);
+    }
+
+    public static void parallelSourceFunction(StreamExecutionEnvironment env) {
+        DataStreamSource<Long> data = env.addSource(new JavaCustomParallelSourceFunction()).setParallelism(2);
+        data.print().setParallelism(1);
+    }
+
+    public static void nonParallelSourceFunction(StreamExecutionEnvironment env) {
+        DataStreamSource<Long> data = env.addSource(new JavaCustomNonParallelSourceFunction());
+        data.print().setParallelism(1);
     }
 
     public static void socketFunction(StreamExecutionEnvironment env) {
