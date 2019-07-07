@@ -4,6 +4,7 @@ import java.{lang, util}
 
 import org.apache.flink.streaming.api.scala.StreamExecutionEnvironment
 import org.apache.flink.api.scala._
+import org.apache.flink.streaming.api.TimeCharacteristic
 import org.apache.flink.streaming.api.collector.selector.OutputSelector
 
 /**
@@ -13,6 +14,8 @@ object DataStreamTransformationApp {
 
   def main(args: Array[String]): Unit = {
     val env = StreamExecutionEnvironment.getExecutionEnvironment
+
+    env.setStreamTimeCharacteristic(TimeCharacteristic.EventTime)
 
 //    filterFunction(env)
 //    unionFunction(env)

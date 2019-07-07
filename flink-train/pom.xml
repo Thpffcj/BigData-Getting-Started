@@ -48,6 +48,7 @@ under the License.
 		<flink.version>1.8.0</flink.version>
 		<scala.binary.version>2.11</scala.binary.version>
 		<scala.version>2.11.12</scala.version>
+<!--		<hadoop.version>2.8.1</hadoop.version>-->
 	</properties>
 
 	<dependencies>
@@ -68,6 +69,21 @@ under the License.
 		<dependency>
 			<groupId>org.apache.flink</groupId>
 			<artifactId>flink-table-planner_2.11</artifactId>
+			<version>1.8.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.flink</groupId>
+			<artifactId>flink-connector-filesystem_2.11</artifactId>
+			<version>1.8.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.hadoop</groupId>
+			<artifactId>hadoop-client</artifactId>
+			<version>2.6.0-cdh5.7.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.flink</groupId>
+			<artifactId>flink-connector-kafka_2.11</artifactId>
 			<version>1.8.0</version>
 		</dependency>
 
