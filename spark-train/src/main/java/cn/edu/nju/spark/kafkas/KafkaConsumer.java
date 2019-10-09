@@ -1,4 +1,4 @@
-package cn.edu.nju.spark.kafka;
+package cn.edu.nju.spark.kafkas;
 
 import kafka.consumer.Consumer;
 import kafka.consumer.ConsumerConfig;

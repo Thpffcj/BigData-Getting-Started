@@ -15,7 +15,7 @@ object DataSetApp {
     //注意：需要导入隐式转换
     import spark.implicits._
 
-    val path = "D:/sales.csv"
+    val path = "/Users/thpffcj/Public/data/sales.csv"
 
     //spark如何解析csv文件？
     val df = spark.read.option("header","true").option("inferSchema","true").csv(path)

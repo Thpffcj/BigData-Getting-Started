@@ -1,8 +1,8 @@
-# BigData-Getting-Started
+# 大数据相关框架学习
 
-本仓库主要存放了一些学习大数据的项目代码，项目来源主要来自慕课网
+本仓库主要存放了一些学习大数据的实战项目代码，项目来源主要来自慕课网
 
-### HadoopTrain
+### hadoop-train
 
 - Hadoop基础与电商行为日志分析 新手入门大数据
 - 本课程从Hadoop核心技术入手，以电商项目为依托，带领你从0基础开始上手，逐步掌握大数据核心技术（如：HDFS、YARN、MapReduce以及Hive），并使用这些技术进行实战，最终完成电商行为日志分析项目，让你轻松入门大数据！
@@ -17,7 +17,7 @@
 - [Hadoop集成Spring的使用](http://www.thpffcj.com/2018/01/08/Big-Data-Getting-Started-7/)
 - [大数据相关技术拓展](http://www.thpffcj.com/2018/01/09/Big-Data-Getting-Started-8/)
 
-### SparkTrain, DataVisualization
+### spark-train, spark-data-visualization
 
 - Spark Streaming实时流处理项目实战
 - 本课程从实时数据产生和流向的各个环节出发，通过集成主流的分布式日志收集框架Flume、分布式消息队列Kafka、分布式列式数据库HBase、及当前最火爆的Spark Streaming打造实时流处理项目实战，让你掌握实时处理的整套处理流程，达到大数据中级研发工程师的水平！
@@ -34,12 +34,20 @@
 - [Spark Streaming项目实战](http://www.thpffcj.com/2018/01/17/Big-Data-Real-time-Streaming-Data-Processing-8/)
 - [可视化实战](http://www.thpffcj.com/2018/01/18/Big-Data-Real-time-Streaming-Data-Processing-9/)
 
-### SparkSQLTrain, SparkSQLVisualization
+### spark-sql-train, spark-sql-visualization
 
 - 以慕课网日志分析为例 进入大数据Spark SQL的世界
 - 本课程以“慕课网日志分析”这一大数据应用案例为主线，使用慕课网真实日志，以目前主流的、最新的Spark稳定版2.1.x为基础，依次介绍相关的大数据技术：Hadoop、Hive、Spark SQL，涉及数据清洗、统计存储、处理入库以及数据可视化（Echarts、Zeppelin），最终会形成一个完整的大数据项目。
 
-### StormTrain, StormDataVisualization
+**项目博客**
+
+- [初探大数据](http://www.thpffcj.com/2018/04/14/Big-Data-SparkSQL-1/)
+- [Spark及其生态圈](http://www.thpffcj.com/2018/04/15/Big-Data-SparkSQL-2/)
+- [Spark SQL概述](http://www.thpffcj.com/2018/04/27/Big-Data-SparkSQL-3/)
+- [DateFrame & Dataset](http://www.thpffcj.com/2018/05/03/Big-Data-SparkSQL-4/)
+- [SparkSQL实战](http://www.thpffcj.com/2018/05/06/Big-Data-SparkSQL-5/)
+
+### storm-train, storm-data-visualization
 
 - 基于Storm构建实时热力分布项目实战
 - Storm是实时流处理领域的一柄利器，本课程采用最新的Storm版本1.1.0，从0开始由浅入深系统讲解，深入Storm内部机制，掌握Storm整合周边大数据框架的使用，从容应对大数据实时流处理！
@@ -55,6 +63,19 @@
 - [DRPC](http://www.thpffcj.com/2018/04/06/Big-Data-Storm-Real-time-Streaming-Data-Processing-7/)
 - [Storm整合其他大数据框架的使用](http://www.thpffcj.com/2018/04/07/Big-Data-Storm-Real-time-Streaming-Data-Processing-8/)
 - [Storm综合项目实战](http://www.thpffcj.com/2018/04/09/Big-Data-Storm-Real-time-Streaming-Data-Processing-9/)
+
+### flink-train
+
+- 新一代大数据计算引擎 Flink从入门到实战
+- 随着云计算和大数据的快速发展，在企业中需要处理和分析的数据量越来越大，随着Flink社区的快速发展，很多公司采用以Flink为核心技术栈来打造统一的大数据处理平台 ，Flink正变得越来越火，此时学习，正当其时。课程中从核心知识的多语言（Java-Scala）讲解到部署实战，循序渐进，助力系统入门Flink企业级应用
+
+**项目博客**
+
+- [初识Flink](http://www.thpffcj.com/2019/06/28/Big-Data-Flink-Getting-Started-1/)
+- [DataSet & DataStream API 编程](http://www.thpffcj.com/2019/06/29/Big-Data-Flink-Getting-Started-2)
+- [Flink Table API 和 Time 操作](http://www.thpffcj.com/2019/07/04/Big-Data-Flink-Getting-Started-3) 
+- [Filnk Connectors 和部署](http://www.thpffcj.com/2019/07/07/Big-Data-Flink-Getting-Started-4)
+- [Flink项目实战](http://www.thpffcj.com/2019/07/10/Big-Data-Flink-Getting-Started-5)
 
 ### hbase-train
 

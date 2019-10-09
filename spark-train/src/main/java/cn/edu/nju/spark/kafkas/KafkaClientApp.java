@@ -1,4 +1,4 @@
-package cn.edu.nju.spark.kafka;
+package cn.edu.nju.spark.kafkas;
 
 /**
  * Created by Thpffcj on 2018/1/11.

@@ -2,13 +2,13 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>cn.edu.nju</groupId>
-    <artifactId>SparkTrain</artifactId>
+    <artifactId>spark-train</artifactId>
     <version>1.0</version>
     <inceptionYear>2008</inceptionYear>
     <properties>
         <scala.version>2.11.8</scala.version>
         <kafka.version>0.9.0.0</kafka.version>
-        <spark.version>2.2.0</spark.version>
+        <spark.version>2.3.0</spark.version>
         <hadoop.version>2.6.0-cdh5.7.0</hadoop.version>
         <hbase.version>1.2.0-cdh5.7.0</hbase.version>
         <maven.compiler.source>1.8</maven.compiler.source>
@@ -28,6 +28,12 @@
             <groupId>org.scala-lang</groupId>
             <artifactId>scala-library</artifactId>
             <version>${scala.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.mongodb.spark</groupId>
+            <artifactId>mongo-spark-connector_2.11</artifactId>
+            <version>${spark.version}</version>
         </dependency>
 
         <!-- Kafka 依赖-->
@@ -118,6 +124,12 @@
             <groupId>org.apache.flume.flume-ng-clients</groupId>
             <artifactId>flume-ng-log4jappender</artifactId>
             <version>1.6.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.netty</groupId>
+            <artifactId>netty-all</artifactId>
+            <version>4.1.18.Final</version>
         </dependency>
 
     </dependencies>
