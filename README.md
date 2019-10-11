@@ -2,6 +2,14 @@
 
 本仓库主要存放了一些学习大数据的实战项目代码，项目来源主要来自慕课网
 
+## 1. 集群搭建
+
+- 这里面的项目都可以通过搭建单机standalone模式完成整个流程
+- 这学期云计算课程需要使用集群环境，刚好学校有云资源，记录下集群搭建过程
+- **[集群搭建](https://github.com/Thpffcj/BigData-Getting-Started/blob/master/集群搭建.md)**
+
+## 2. 目录结构
+
 ### hadoop-train
 
 - Hadoop基础与电商行为日志分析 新手入门大数据
