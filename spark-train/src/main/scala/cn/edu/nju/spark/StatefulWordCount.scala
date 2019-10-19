@@ -19,7 +19,7 @@ object StatefulWordCount {
     // . 代表当前目录
     ssc.checkpoint(".")
 
-    val lines = ssc.socketTextStream("192.168.92.130", 6789)
+    val lines = ssc.socketTextStream("localhost", 9999)
 
     val result = lines.flatMap(_.split(" ")).map((_,1))
     val state = result.updateStateByKey[Int](updateFunction _)

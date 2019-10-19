@@ -19,14 +19,14 @@ public class JavaDataSetTransformationApp {
 
     public static void main(String[] args) throws Exception {
         ExecutionEnvironment env = ExecutionEnvironment.getExecutionEnvironment();
-//        mapFunction(env);
+        mapFunction(env);
 //        mapPartitionFunction(env);
 //        firstFunction(env);
 //        flatMapFunction(env);
 //        distinctFunction(env);
 //        joinFunction(env);
 //        outJoinFunction(env);
-        crossFunction(env);
+//        crossFunction(env);
     }
 
     public static void crossFunction(ExecutionEnvironment env) throws Exception {
