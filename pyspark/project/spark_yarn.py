@@ -10,19 +10,19 @@ if __name__ == '__main__':
     data2015 = spark.read.format("csv")\
         .option("header", "true")\
         .option("inferSchema", "true")\
-        .load("file:///Users/thpffcj/Public/file/Beijing_2015_HourlyPM25_created20160201.csv")\
+        .load("/data/Beijing_2015_HourlyPM25_created20160201.csv")\
         .select("Year", "Month", "Day", "Hour", "Value", "QC Name")
 
     data2016 = spark.read.format("csv")\
         .option("header", "true")\
         .option("inferSchema", "true")\
-        .load("file:///Users/thpffcj/Public/file/Beijing_2016_HourlyPM25_created20170201.csv")\
+        .load("/data/Beijing_2016_HourlyPM25_created20170201.csv")\
         .select("Year", "Month", "Day", "Hour", "Value", "QC Name")
 
     data2017 = spark.read.format("csv")\
         .option("header", "true")\
         .option("inferSchema", "true")\
-        .load("file:///Users/thpffcj/Public/file/Beijing_2017_HourlyPM25_created20170803.csv")\
+        .load("/data/Beijing_2017_HourlyPM25_created20170803.csv")\
         .select("Year", "Month", "Day", "Hour", "Value", "QC Name")
 
 
@@ -51,8 +51,19 @@ if __name__ == '__main__':
     group2016 = data2016.withColumn("Grade", grade_function_udf(data2016['Value'])).groupBy("Grade").count()
     group2015 = data2015.withColumn("Grade", grade_function_udf(data2015['Value'])).groupBy("Grade").count()
 
-    group2017.select("Grade", "count", group2017['count'] / data2017.count()).show()
-    group2016.select("Grade", "count", group2016['count'] / data2016.count()).show()
-    group2015.select("Grade", "count", group2015['count'] / data2015.count()).show()
+    # result2017 = group2017.select("Grade", "count", group2017['count'] / data2017.count())
+    # group2016.select("Grade", "count", group2016['count'] / data2016.count()).show()
+    # group2015.select("Grade", "count", group2015['count'] / data2015.count()).show()
+
+    result2017 = group2017.selectExpr("Grade as grade", "count").withColumn("percent",  group2017['count'] / data2017.count() * 100)
+    result2016 = group2016.selectExpr("Grade as grade", "count").withColumn("percent",  group2016['count'] / data2016.count() * 100)
+    result2015 = group2015.selectExpr("Grade as grade", "count").withColumn("percent",  group2015['count'] / data2015.count() * 100)
+
+    result2017.write.format("org.elasticsearch.spark.sql").option("es.nodes", "172.19.170.131:9200").mode(
+        "overwrite").save("weather2017/pm")
+    result2016.write.format("org.elasticsearch.spark.sql").option("es.nodes", "172.19.170.131:9200").mode(
+        "overwrite").save("weather2016/pm")
+    result2015.write.format("org.elasticsearch.spark.sql").option("es.nodes", "172.19.170.131:9200").mode(
+        "overwrite").save("weather2015/pm")
 
     spark.stop()

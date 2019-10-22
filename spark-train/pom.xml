@@ -7,7 +7,7 @@
     <inceptionYear>2008</inceptionYear>
     <properties>
         <scala.version>2.11.8</scala.version>
-        <kafka.version>0.9.0.0</kafka.version>
+<!--        <kafka.version>2.2</kafka.version>-->
         <spark.version>2.3.0</spark.version>
         <hadoop.version>2.6.0-cdh5.7.0</hadoop.version>
         <hbase.version>1.2.0-cdh5.7.0</hbase.version>
