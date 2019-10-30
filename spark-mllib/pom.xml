@@ -32,7 +32,6 @@
             <version>${scala.version}</version>
         </dependency>
 
-
         <!-- Hadoop 依赖-->
         <dependency>
             <groupId>org.apache.hadoop</groupId>

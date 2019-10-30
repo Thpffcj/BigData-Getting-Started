@@ -32,6 +32,7 @@ object HousePriceForecast {
     }).toDF("square", "price", "rand").sort("rand")  // 强制类型转换过程
 
     val assembler = new VectorAssembler().setInputCols(Array("square")).setOutputCol("features")
+
     // 特征包装
     val dataset = assembler.transform(data)
 
