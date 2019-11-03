@@ -10,7 +10,7 @@ object BatchWCScalaApp {
 
   def main(args: Array[String]): Unit = {
 
-    val input = "file:///Users/thpffcj/Public/data/hello.txt"
+    val input = "file:///Users/thpffcj/Public/file/hello.txt"
 
     val env = ExecutionEnvironment.getExecutionEnvironment
 
