@@ -123,7 +123,7 @@ under the License.
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
-			<version>8.0.13</version>
+			<version>8.0.28</version>
 		</dependency>
 
 		<!-- Add logging framework, to produce console output when running in the IDE. -->
