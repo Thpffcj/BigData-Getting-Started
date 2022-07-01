@@ -9,7 +9,7 @@
         <scala.version>2.11.8</scala.version>
 <!--        <kafka.version>2.2</kafka.version>-->
         <spark.version>2.3.0</spark.version>
-        <hadoop.version>2.6.0-cdh5.7.0</hadoop.version>
+        <hadoop.version>2.7.0</hadoop.version>
         <hbase.version>1.2.0-cdh5.7.0</hbase.version>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
